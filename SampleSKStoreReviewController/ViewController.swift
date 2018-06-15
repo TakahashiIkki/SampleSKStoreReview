@@ -7,17 +7,12 @@
 //
 
 import UIKit
-import StoreKit
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        if #available(iOS 10.3, *) {
-            SKStoreReviewController.requestReview()
-        }
     }
 
     override func didReceiveMemoryWarning() {

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import StoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let key = ""
+        // 起動回数を増加
+        UserDefaults.standard.set(UserDefaults.standard.integer(forKey: key) + 1, forKey: key)
+        UserDefaults.standard.synchronize()
+        
+        let count = UserDefaults.standard.integer(forKey: key)
+        print(count)
+        if count == 5 {
+            SKStoreReviewController.requestReview()
+        }
+        
         return true
     }
 
